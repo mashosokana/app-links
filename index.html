@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>売れる仕組屋のアプリ集｜郡司 守</title>
+  <meta name="description" content="売れる仕組屋・郡司守が作った、中小企業・個人事業主のための無料ビジネスツール集。診断テスト、口コミPOP、日報システムなど。">
+  <!-- OGP -->
+  <meta property="og:title" content="売れる仕組屋のアプリ集">
+  <meta property="og:description" content="中小企業・個人事業主のための無料ビジネスツール集。3分診断テスト、口コミPOP、日報システムなど。">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ja_JP">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="売れる仕組屋のアプリ集">
+  <meta name="twitter:description" content="中小企業・個人事業主のための無料ビジネスツール集。">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+      background: #fff;
+      color: #333;
+      min-height: 100dvh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Header */
+    header {
+      text-align: center;
+      padding: 40px 20px 24px;
+    }
+
+    header h1 {
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: #222;
+    }
+
+    header h1 span {
+      display: block;
+      font-size: 13px;
+      font-weight: 400;
+      color: #888;
+      margin-top: 4px;
+      letter-spacing: 0.04em;
+    }
+
+    .accent-line {
+      width: 40px;
+      height: 3px;
+      background: rgb(236, 201, 75);
+      margin: 16px auto 0;
+      border-radius: 2px;
+    }
+
+    /* Featured Card */
+    .featured-card {
+      display: block;
+      background: #fff;
+      border: 2px solid rgb(236, 201, 75);
+      border-radius: 12px;
+      padding: 20px 24px;
+      margin: 24px auto 12px;
+      max-width: 640px;
+      text-decoration: none;
+      color: inherit;
+      transition: box-shadow 0.2s, transform 0.15s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .featured-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: rgb(236, 201, 75);
+    }
+
+    .featured-card:active {
+      transform: scale(0.98);
+    }
+
+    .featured-badge {
+      display: inline-block;
+      background: rgb(236, 201, 75);
+      color: #333;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 20px;
+      margin-bottom: 10px;
+      letter-spacing: 0.06em;
+    }
+
+    .featured-card .card-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: #222;
+      margin-bottom: 6px;
+    }
+
+    .featured-card .card-desc {
+      font-size: 14px;
+      color: #666;
+      line-height: 1.5;
+    }
+
+    .featured-card .card-arrow {
+      position: absolute;
+      right: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 18px;
+      color: #bbb;
+    }
+
+    /* App List */
+    .app-list {
+      max-width: 640px;
+      margin: 8px auto 0;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .app-card {
+      display: block;
+      background: #fff;
+      border: 1px solid #e8e8e8;
+      border-radius: 10px;
+      padding: 16px 48px 16px 20px;
+      text-decoration: none;
+      color: inherit;
+      transition: box-shadow 0.2s, transform 0.15s, border-color 0.2s;
+      position: relative;
+    }
+
+    .app-card:active {
+      transform: scale(0.98);
+    }
+
+    @media (hover: hover) {
+      .featured-card:hover {
+        box-shadow: 0 4px 16px rgba(236, 201, 75, 0.25);
+      }
+      .app-card:hover {
+        border-color: rgb(236, 201, 75);
+        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+      }
+    }
+
+    .app-card .card-title {
+      font-size: 15px;
+      font-weight: 600;
+      color: #222;
+      margin-bottom: 4px;
+    }
+
+    .app-card .card-desc {
+      font-size: 13px;
+      color: #888;
+      line-height: 1.4;
+    }
+
+    .app-card .card-arrow {
+      position: absolute;
+      right: 18px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 16px;
+      color: #ccc;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 40px 20px 32px;
+      margin-top: auto;
+    }
+
+    footer p {
+      font-size: 11px;
+      color: #aaa;
+    }
+
+    footer a {
+      color: #999;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* Loading */
+    .loading {
+      text-align: center;
+      padding: 40px;
+      color: #bbb;
+      font-size: 14px;
+    }
+
+    .error {
+      text-align: center;
+      padding: 40px;
+      color: #e74c3c;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>売れる仕組屋のアプリ集<span>郡司 守｜株式会社インナーコンサルティング</span></h1>
+    <div class="accent-line"></div>
+  </header>
+
+  <main class="container">
+    <div id="featured"></div>
+    <div id="app-list" class="app-list">
+      <div class="loading">読み込み中...</div>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 <a href="https://blog.inner-consulting.com" target="_blank" rel="noopener">株式会社インナーコンサルティング</a></p>
+  </footer>
+
+  <script>
+    (function () {
+      var apps = [
+        {"title":"無料診断テスト","description":"3分であなたのビジネスの\"穴\"が分かる","url":"https://free-diagnosis-form.vercel.app/","featured":true},
+        {"title":"こえメモ→マニュアル","description":"音声メモから業務マニュアルを自動生成","url":"https://koememo-manual.vercel.app"},
+        {"title":"機会損失チェッカー","description":"「まあいいか」の値段を10秒で見える化","url":"https://x.gd/nYLtk"},
+        {"title":"現場日報システム（入力画面）","description":"スマホで30秒。現場と時間を選んで送信するだけ","url":"https://script.google.com/macros/s/AKfycbwCewmcxR5KqEc3p2iXzHEH0PdXUO5VqxiDLDOyC4B4fa6uqiS3tCB1POxb585QxAbQ/exec"},
+        {"title":"現場日報システム（集計シート）","description":"送信データがリアルタイムに反映される管理画面","url":"https://docs.google.com/spreadsheets/d/1DqiR3jUhyYUjNl10CPjWOn3KvV09Br9RFRDVCeyNW4s/edit"}
+      ];
+
+      var featuredEl = document.getElementById('featured');
+      var listEl = document.getElementById('app-list');
+      var featured = null;
+      var others = [];
+
+      for (var i = 0; i < apps.length; i++) {
+        if (apps[i].featured) {
+          featured = apps[i];
+        } else {
+          others.push(apps[i]);
+        }
+      }
+
+      if (featured) {
+        featuredEl.innerHTML =
+          '<a href="' + escapeHtml(featured.url) + '" class="featured-card container" target="_blank" rel="noopener">' +
+          '<span class="featured-badge">おすすめ</span>' +
+          '<div class="card-title">' + escapeHtml(featured.title) + '</div>' +
+          '<div class="card-desc">' + escapeHtml(featured.description) + '</div>' +
+          '<span class="card-arrow">›</span>' +
+          '</a>';
+      }
+
+      var html = '';
+      for (var j = 0; j < others.length; j++) {
+        var app = others[j];
+        html +=
+          '<a href="' + escapeHtml(app.url) + '" class="app-card" target="_blank" rel="noopener">' +
+          '<div class="card-title">' + escapeHtml(app.title) + '</div>' +
+          '<div class="card-desc">' + escapeHtml(app.description) + '</div>' +
+          '<span class="card-arrow">›</span>' +
+          '</a>';
+      }
+      listEl.innerHTML = html;
+
+      function escapeHtml(str) {
+        var div = document.createElement('div');
+        div.appendChild(document.createTextNode(str));
+        return div.innerHTML;
+      }
+    })();
+  </script>
+</body>
+</html>
